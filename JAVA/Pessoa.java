@@ -42,7 +42,6 @@ public class PJ extends Pessoa {
     }
 }
 
---------------------------------------------------
 
 public operacao ( int A, int B){
     return A + B;
