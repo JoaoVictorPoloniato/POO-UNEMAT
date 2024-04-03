@@ -134,7 +134,22 @@ public class Main {
     public static void main(String[] args){
 
         Sub subtracao = new Sub();
-        System.out.println("O resultado eh" + subtracao.Operacao(6, 4));
+        Mult multiplicacao = new Mult();
+        Operacao soma = new Operacao();
+        Calculo c = new Mult(); // vai pegar do mult 
+        Calculo c1 = new Sub(); // vai pegar do Sub
+
+        System.out.println("O resultado eh " + subtracao.Operacao(6, 4));
+        System.out.println("---------------------------------------------");
+        System.out.println("O resultado da multiplicacao eh " + multiplicacao.Operacao(6,4));
+        System.out.println("---------------------------------------------");
+        System.out.println("O Resultado da soma eh " + soma.Operacao(6, 4));
+        System.out.println("---------------------------------------------");
+        System.out.println("O resultado da Multiplicacao eh " + c.Operacao(7, 8));
+        System.out.println("---------------------------------------------");
+        System.out.println("O resultado da Subtracao eh " + c1.Operacao(10, 10));
 
     }
 }
+
+-------------------------------------------------------------------------------------------------
