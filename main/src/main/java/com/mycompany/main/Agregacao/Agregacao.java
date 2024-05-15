@@ -2,19 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.main.main;
+package com.mycompany.main.Agregacao;
 
 /**
  *
  * @author polon
  */
-public class Associacao
+public class Agregacao
 {
     public static void main(String[] args)
     {
-        Cliente c = new Cliente("Joao",1852,"06039241152","poloniato155@gmail.com");
-        Conta cc = new Conta(123, "dsdsds", c, 24430);
+        Produto p = new Produto("Martelo", 10.45);
+        Produto p1 = new Produto("Cerrote", 15.00);
+        Carrinho c = new Carrinho();
         
-        System.out.println("A conta " + cc.numero + " tem como titular " + cc.Titular.nome);
+        c.Adicionar(p);
+        c.Adicionar(p1);
+        c.Exibir();
     }
+   
 }

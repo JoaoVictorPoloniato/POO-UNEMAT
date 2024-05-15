@@ -1,4 +1,4 @@
-package com.mycompany.main.main;
+package com.mycompany.main.Associacao;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
