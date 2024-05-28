@@ -20,9 +20,7 @@ public class VeiculosDAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "zaq12wsxZAQ!@WSX");
             return true;
-        } catch (ClassNotFoundException ex) {
-            return false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             return false;
         }
     }
@@ -99,7 +97,7 @@ public class VeiculosDAO {
     }
 
     public String getRelatorio() {
-        List<Veiculos> veiculos = new ArrayList<Veiculos>();
+        List<Veiculos> veiculos = new ArrayList<>();
         try {
             st = conn.prepareStatement("SELECT * FROM veiculos");
             rs = st.executeQuery();
@@ -127,7 +125,7 @@ public class VeiculosDAO {
     }
 
     public String getRelatorioManual() {
-        List<Veiculos> veiculos = new ArrayList<Veiculos>();
+        List<Veiculos> veiculos = new ArrayList<>();
         try {
             st = conn.prepareStatement("SELECT * FROM veiculos WHERE tipocambio_veiculo = 'manual'");
             rs = st.executeQuery();
@@ -155,7 +153,7 @@ public class VeiculosDAO {
     }
 
     public String getRelatorioAutomatico() {
-        List<Veiculos> veiculos = new ArrayList<Veiculos>();
+        List<Veiculos> veiculos = new ArrayList<>();
         try {
             st = conn.prepareStatement("SELECT * FROM veiculos WHERE tipocambio_veiculo = 'automatico'");
             rs = st.executeQuery();
