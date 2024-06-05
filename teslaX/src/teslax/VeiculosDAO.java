@@ -40,8 +40,6 @@ public class VeiculosDAO {
             st.setString(9, veiculo.getDescricao_veiculo());
             st.setString(10, veiculo.getMarca_veiculo());
             status = st.executeUpdate();
-            //String sql;
-            //st.executeUpdate(sql);
             return status;
         } catch (SQLException ex) {
             return ex.getErrorCode();

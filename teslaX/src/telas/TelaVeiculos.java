@@ -367,7 +367,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
         } else {
             resposta = dao.salvar(veiculo);
             if (resposta == 1) {
-                JOptionPane.showMessageDialog(null, "Dados incluídos com sucesso!");
+                JOptionPane.showMessageDialog(null, "Veiculo cadastrado com sucesso!");
                 limpacampos();
             } else if (resposta == 1062) {
                 JOptionPane.showMessageDialog(null, "Erro ao salvar");
@@ -397,7 +397,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
         if (status == true) {
             Veiculos veiculo = dao.consultar(inputDoUsuario);
             if (veiculo == null) {
-                JOptionPane.showMessageDialog(null, "Veículo não localizável!");
+                JOptionPane.showMessageDialog(null, "Veiculo não existe");
             } else {
                 txt_modelo.setText(veiculo.getModelo_veiculo());
                 txt_ano.setText(veiculo.getAno_veiculo());
