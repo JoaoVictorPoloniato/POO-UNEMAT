@@ -10,7 +10,7 @@ public class LoginDAO {
     public boolean conectar() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "123456");
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace(); // Você pode querer lidar com a exceção de uma maneira mais apropriada para sua aplicação

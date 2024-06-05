@@ -501,7 +501,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "123456");
             PreparedStatement st = con.prepareStatement("UPDATE veiculos SET ano_veiculo = ?, combustivel_veiculo = ?, tipocambio_veiculo = ?, cor_veiculo = ?, duracao_garantia = ?, km_veiculo = ?, modelo_veiculo = ?, preco_veiculo = ?, descricao_veiculo = ?, marca_veiculo = ? WHERE id_carro = ?");
             st.setString(1, txt_ano.getText());
             st.setString(2, txt_combustivel.getText());
