@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import teslax.Veiculos;
 import teslax.VeiculosDAO;
+import java.sql.ResultSet;
 
 /**
  *
@@ -195,8 +196,14 @@ public class TelaVeiculos extends javax.swing.JFrame {
         txt_preco.setBounds(110, 360, 210, 30);
         getContentPane().add(txt_descricao);
         txt_descricao.setBounds(130, 400, 190, 30);
+
+        txt_marca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_marcaActionPerformed(evt);
+            }
+        });
         getContentPane().add(txt_marca);
-        txt_marca.setBounds(60, 440, 260, 30);
+        txt_marca.setBounds(120, 450, 260, 30);
 
         btSalvar.setText("Salvar");
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -411,6 +418,8 @@ public class TelaVeiculos extends javax.swing.JFrame {
         btCancelar.setEnabled(true);
         mostracampos(false);
     }//GEN-LAST:event_btConsultarActionPerformed
+    
+    
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         btSalvar.setEnabled(true);
@@ -492,7 +501,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "zaq12wsxZAQ!@WSX");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "");
             PreparedStatement st = con.prepareStatement("UPDATE veiculos SET ano_veiculo = ?, combustivel_veiculo = ?, tipocambio_veiculo = ?, cor_veiculo = ?, duracao_garantia = ?, km_veiculo = ?, modelo_veiculo = ?, preco_veiculo = ?, descricao_veiculo = ?, marca_veiculo = ? WHERE id_carro = ?");
             st.setString(1, txt_ano.getText());
             st.setString(2, txt_combustivel.getText());
@@ -585,6 +594,10 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_idActionPerformed
+
+    private void txt_marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_marcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_marcaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

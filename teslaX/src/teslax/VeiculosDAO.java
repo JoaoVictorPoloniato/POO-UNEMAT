@@ -18,7 +18,7 @@ public class VeiculosDAO {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "zaq12wsxZAQ!@WSX");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "");
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
             return false;
@@ -179,4 +179,5 @@ public class VeiculosDAO {
         }
         return String.valueOf(veiculos);
     }
+
 }
