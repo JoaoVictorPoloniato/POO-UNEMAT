@@ -18,7 +18,7 @@ public class VeiculosDAO {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "123456");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "");
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
             return false;
@@ -93,89 +93,38 @@ public class VeiculosDAO {
             return false;
         }
     }
-
-    public String getRelatorio() {
-        List<Veiculos> veiculos = new ArrayList<>();
+    
+    public ResultSet getRelatorio() {
         try {
-            st = conn.prepareStatement("SELECT * FROM veiculos");
-            rs = st.executeQuery();
-            while (rs.next()) {
-                Veiculos veiculo = new Veiculos();
-                veiculo.setId_carro(rs.getInt("id_carro"));
-                veiculo.setAno_veiculo(rs.getString("ano_veiculo"));
-                veiculo.setCombustivel_veiculo(rs.getString("combustivel_veiculo"));
-                veiculo.setTipocambio_veiculo(rs.getString("tipocambio_veiculo"));
-                veiculo.setCor_veiculo(rs.getString("cor_veiculo"));
-                veiculo.setDuracao_garantia(rs.getString("duracao_garantia"));
-                veiculo.setKm_veiculo(rs.getString("km_veiculo"));
-                veiculo.setModelo_veiculo(rs.getString("modelo_veiculo"));
-                veiculo.setPreco_veiculo(rs.getString("preco_veiculo"));
-                veiculo.setDescricao_veiculo(rs.getString("descricao_veiculo"));
-                veiculo.setMarca_veiculo(rs.getString("marca_veiculo"));
-
-                veiculos.add(veiculo);
-            }
-
+            String sql = "SELECT * FROM veiculos";
+            PreparedStatement st = this.conn.prepareStatement(sql);
+            return st.executeQuery(sql);
         } catch (SQLException ex) {
+            ex.printStackTrace();
             return null;
         }
-        return String.valueOf(veiculos);
     }
 
-    public String getRelatorioManual() {
-        List<Veiculos> veiculos = new ArrayList<>();
+    public ResultSet getRelatorioManual() {
         try {
-            st = conn.prepareStatement("SELECT * FROM veiculos WHERE tipocambio_veiculo = 'manual'");
-            rs = st.executeQuery();
-            while (rs.next()) {
-                Veiculos veiculo = new Veiculos();
-                veiculo.setId_carro(rs.getInt("id_carro"));
-                veiculo.setAno_veiculo(rs.getString("ano_veiculo"));
-                veiculo.setCombustivel_veiculo(rs.getString("combustivel_veiculo"));
-                veiculo.setTipocambio_veiculo(rs.getString("tipocambio_veiculo"));
-                veiculo.setCor_veiculo(rs.getString("cor_veiculo"));
-                veiculo.setDuracao_garantia(rs.getString("duracao_garantia"));
-                veiculo.setKm_veiculo(rs.getString("km_veiculo"));
-                veiculo.setModelo_veiculo(rs.getString("modelo_veiculo"));
-                veiculo.setPreco_veiculo(rs.getString("preco_veiculo"));
-                veiculo.setDescricao_veiculo(rs.getString("descricao_veiculo"));
-                veiculo.setMarca_veiculo(rs.getString("marca_veiculo"));
-
-                veiculos.add(veiculo);
-            }
-
+            String sql = "SELECT * FROM veiculos WHERE tipocambio_veiculo = 'manual'";
+            PreparedStatement st = this.conn.prepareStatement(sql);
+            return st.executeQuery(sql);
         } catch (SQLException ex) {
+            ex.printStackTrace();
             return null;
         }
-        return String.valueOf(veiculos);
     }
 
-    public String getRelatorioAutomatico() {
-        List<Veiculos> veiculos = new ArrayList<>();
+    public ResultSet getRelatorioAutomatico() {
         try {
-            st = conn.prepareStatement("SELECT * FROM veiculos WHERE tipocambio_veiculo = 'automatico'");
-            rs = st.executeQuery();
-            while (rs.next()) {
-                Veiculos veiculo = new Veiculos();
-                veiculo.setId_carro(rs.getInt("id_carro"));
-                veiculo.setAno_veiculo(rs.getString("ano_veiculo"));
-                veiculo.setCombustivel_veiculo(rs.getString("combustivel_veiculo"));
-                veiculo.setTipocambio_veiculo(rs.getString("tipocambio_veiculo"));
-                veiculo.setCor_veiculo(rs.getString("cor_veiculo"));
-                veiculo.setDuracao_garantia(rs.getString("duracao_garantia"));
-                veiculo.setKm_veiculo(rs.getString("km_veiculo"));
-                veiculo.setModelo_veiculo(rs.getString("modelo_veiculo"));
-                veiculo.setPreco_veiculo(rs.getString("preco_veiculo"));
-                veiculo.setDescricao_veiculo(rs.getString("descricao_veiculo"));
-                veiculo.setMarca_veiculo(rs.getString("marca_veiculo"));
-
-                veiculos.add(veiculo);
-            }
-
+            String sql = "SELECT * FROM veiculos WHERE tipocambio_veiculo = 'automatico'";
+            PreparedStatement st = this.conn.prepareStatement(sql);
+            return st.executeQuery(sql);
         } catch (SQLException ex) {
+            ex.printStackTrace();
             return null;
         }
-        return String.valueOf(veiculos);
     }
 
 }

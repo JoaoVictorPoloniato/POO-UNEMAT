@@ -24,7 +24,7 @@ public static void main(String[] args) {
     // Conectar ao banco de dados
     String url = "jdbc:mysql://localhost:3306/bdtesla"; // Substitua 'nome_do_banco' pelo nome real do seu banco de dados
     String user = "root"; // Substitua 'usuario' pelo seu usuário do banco de dados
-    String password = "123456"; // Substitua 'senha' pela sua senha do banco de dados
+    String password = ""; // Substitua 'senha' pela sua senha do banco de dados
 
     try (Connection connection = DriverManager.getConnection(url, user, password)) {
         if (connection != null) {

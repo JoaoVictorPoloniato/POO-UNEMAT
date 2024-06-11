@@ -4,13 +4,13 @@
  */
 package telas;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import teslax.Veiculos;
@@ -110,12 +110,10 @@ public class TelaVeiculos extends javax.swing.JFrame {
         btAtualizar = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txt_relatorio = new javax.swing.JTextArea();
-        btRelatorio = new javax.swing.JButton();
         btCancelar = new javax.swing.JToggleButton();
         btRelatorioManual = new javax.swing.JButton();
         btRelatorioAutomatico = new javax.swing.JButton();
+        btRelatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de veículos");
@@ -123,19 +121,19 @@ public class TelaVeiculos extends javax.swing.JFrame {
 
         jLabel2.setText("Ano do veículo:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 90, 90, 16);
+        jLabel2.setBounds(10, 90, 130, 16);
 
         jLabel3.setText("Tipo combustível:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 130, 100, 16);
+        jLabel3.setBounds(10, 130, 130, 16);
 
         jLabel4.setText("Tipo de câmbio:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 170, 110, 16);
+        jLabel4.setBounds(10, 170, 130, 16);
 
         jLabel5.setText("Cor:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 210, 30, 16);
+        jLabel5.setBounds(10, 210, 130, 16);
 
         jLabel6.setText("Duração da garantia:");
         getContentPane().add(jLabel6);
@@ -143,15 +141,15 @@ public class TelaVeiculos extends javax.swing.JFrame {
 
         jLabel7.setText("KM:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 290, 21, 16);
+        jLabel7.setBounds(10, 290, 130, 16);
 
         jLabel8.setText("Modelo do veículo:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 330, 110, 16);
+        jLabel8.setBounds(10, 330, 130, 16);
 
         jLabel9.setText("Preço do veículo:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 370, 110, 16);
+        jLabel9.setBounds(10, 370, 130, 16);
 
         jLabel10.setText("Descrição do veículo:");
         getContentPane().add(jLabel10);
@@ -159,7 +157,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
 
         jLabel11.setText("Marca:");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(10, 450, 36, 16);
+        jLabel11.setBounds(10, 450, 130, 16);
 
         txt_ano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,13 +165,13 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txt_ano);
-        txt_ano.setBounds(100, 80, 220, 30);
+        txt_ano.setBounds(140, 80, 220, 30);
         getContentPane().add(txt_combustivel);
-        txt_combustivel.setBounds(110, 120, 210, 30);
+        txt_combustivel.setBounds(140, 120, 220, 30);
         getContentPane().add(txt_tipocambio);
-        txt_tipocambio.setBounds(100, 160, 220, 30);
+        txt_tipocambio.setBounds(140, 160, 220, 30);
         getContentPane().add(txt_cor);
-        txt_cor.setBounds(40, 200, 280, 30);
+        txt_cor.setBounds(140, 200, 220, 30);
 
         txt_duracaogarantia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,9 +179,9 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txt_duracaogarantia);
-        txt_duracaogarantia.setBounds(130, 240, 190, 30);
+        txt_duracaogarantia.setBounds(140, 240, 220, 30);
         getContentPane().add(txt_km);
-        txt_km.setBounds(40, 280, 280, 30);
+        txt_km.setBounds(140, 280, 220, 30);
 
         txt_modelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,11 +189,11 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txt_modelo);
-        txt_modelo.setBounds(120, 320, 200, 30);
+        txt_modelo.setBounds(140, 320, 220, 30);
         getContentPane().add(txt_preco);
-        txt_preco.setBounds(110, 360, 210, 30);
+        txt_preco.setBounds(140, 360, 220, 30);
         getContentPane().add(txt_descricao);
-        txt_descricao.setBounds(130, 400, 190, 30);
+        txt_descricao.setBounds(140, 400, 220, 30);
 
         txt_marca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +201,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txt_marca);
-        txt_marca.setBounds(120, 450, 260, 30);
+        txt_marca.setBounds(140, 440, 220, 30);
 
         btSalvar.setText("Salvar");
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +219,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btConsultar);
-        btConsultar.setBounds(750, 120, 120, 23);
+        btConsultar.setBounds(750, 160, 120, 23);
 
         btExcluir.setText("Excluir");
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -230,11 +228,11 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btExcluir);
-        btExcluir.setBounds(750, 160, 120, 23);
+        btExcluir.setBounds(750, 280, 120, 23);
 
         jLabel1.setText("ID");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 50, 20, 16);
+        jLabel1.setBounds(10, 50, 130, 16);
 
         txt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +240,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txt_id);
-        txt_id.setBounds(40, 40, 50, 30);
+        txt_id.setBounds(140, 40, 220, 30);
 
         btNovo.setText("Novo");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +249,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btNovo);
-        btNovo.setBounds(750, 200, 120, 23);
+        btNovo.setBounds(750, 40, 120, 23);
 
         btNovaPesquisa.setText("Nova Pesquisa");
         btNovaPesquisa.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +258,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btNovaPesquisa);
-        btNovaPesquisa.setBounds(750, 240, 120, 23);
+        btNovaPesquisa.setBounds(750, 120, 120, 23);
 
         btAtualizar.setText("Atualizar");
         btAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +267,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btAtualizar);
-        btAtualizar.setBounds(750, 280, 120, 23);
+        btAtualizar.setBounds(750, 240, 120, 23);
 
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -278,28 +276,12 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btEditar);
-        btEditar.setBounds(750, 320, 120, 23);
+        btEditar.setBounds(750, 200, 120, 23);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel12.setText("CADASTRO DE VEÍCULOS");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(370, 10, 180, 20);
-
-        txt_relatorio.setColumns(20);
-        txt_relatorio.setRows(5);
-        jScrollPane1.setViewportView(txt_relatorio);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 500, 870, 180);
-
-        btRelatorio.setText("Relatório");
-        btRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btRelatorioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btRelatorio);
-        btRelatorio.setBounds(750, 360, 120, 23);
 
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -308,7 +290,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btCancelar);
-        btCancelar.setBounds(750, 400, 120, 23);
+        btCancelar.setBounds(750, 320, 120, 23);
 
         btRelatorioManual.setText("Relatório Veículos Manuais");
         btRelatorioManual.addActionListener(new java.awt.event.ActionListener() {
@@ -317,7 +299,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btRelatorioManual);
-        btRelatorioManual.setBounds(525, 80, 180, 23);
+        btRelatorioManual.setBounds(510, 80, 210, 23);
 
         btRelatorioAutomatico.setText("Relatório Veículos Automáticos");
         btRelatorioAutomatico.addActionListener(new java.awt.event.ActionListener() {
@@ -328,7 +310,16 @@ public class TelaVeiculos extends javax.swing.JFrame {
         getContentPane().add(btRelatorioAutomatico);
         btRelatorioAutomatico.setBounds(510, 120, 210, 23);
 
-        setSize(new java.awt.Dimension(902, 700));
+        btRelatorio.setText("Relatório Geral");
+        btRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRelatorioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btRelatorio);
+        btRelatorio.setBounds(510, 40, 210, 23);
+
+        setSize(new java.awt.Dimension(902, 544));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -501,7 +492,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "123456");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "");
             PreparedStatement st = con.prepareStatement("UPDATE veiculos SET ano_veiculo = ?, combustivel_veiculo = ?, tipocambio_veiculo = ?, cor_veiculo = ?, duracao_garantia = ?, km_veiculo = ?, modelo_veiculo = ?, preco_veiculo = ?, descricao_veiculo = ?, marca_veiculo = ? WHERE id_carro = ?");
             st.setString(1, txt_ano.getText());
             st.setString(2, txt_combustivel.getText());
@@ -552,14 +543,6 @@ public class TelaVeiculos extends javax.swing.JFrame {
         btCancelar.setEnabled(true);
     }//GEN-LAST:event_btEditarActionPerformed
 
-    private void btRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioActionPerformed
-        VeiculosDAO dao = new VeiculosDAO();
-        boolean status = dao.conectar();
-        if (status == true) {
-            txt_relatorio.setText(dao.getRelatorio());
-        }
-    }//GEN-LAST:event_btRelatorioActionPerformed
-
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         txt_id.setEnabled(false);
         btConsultar.setEnabled(true);
@@ -578,16 +561,68 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private void btRelatorioManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioManualActionPerformed
         VeiculosDAO dao = new VeiculosDAO();
         boolean status = dao.conectar();
-        if (status == true) {
-            txt_relatorio.setText(dao.getRelatorioManual());
+        if (status) {
+            ResultSet rs = dao.getRelatorioManual();
+            StringBuilder rel = new StringBuilder();
+            String csvFile = "relatorio_veiculos_manuais.csv";
+        
+            try (FileWriter writer = new FileWriter(csvFile)) {
+                writer.append("ID,Modelo,Ano,Combustível,Câmbio,Cor,Duração Garantia,KM,Preço,Descrição,Marca\n");
+
+                while (rs.next()) {
+                    writer.append(Integer.toString(rs.getInt("id_carro"))).append(";")
+                          .append(rs.getString("modelo_veiculo")).append(";")
+                          .append(rs.getString("ano_veiculo")).append(";")
+                          .append(rs.getString("combustivel_veiculo")).append(";")
+                          .append(rs.getString("tipocambio_veiculo")).append(";")
+                          .append(rs.getString("cor_veiculo")).append(";")
+                          .append(rs.getString("duracao_garantia")).append(";")
+                          .append(rs.getString("km_veiculo")).append(";")
+                          .append(rs.getString("preco_veiculo")).append(";")
+                          .append(rs.getString("descricao_veiculo")).append(";")
+                          .append(rs.getString("marca_veiculo")).append("\n");
+                }
+                JOptionPane.showMessageDialog(null, "Relatório exportado com sucesso para " + csvFile + ".\nVerifique a pasta do projeto.");
+            } catch (SQLException | IOException ex) {
+                Logger.getLogger(TelaVeiculos.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Erro ao exportar relatório: " + ex.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com banco de dados");
         }
     }//GEN-LAST:event_btRelatorioManualActionPerformed
 
     private void btRelatorioAutomaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioAutomaticoActionPerformed
         VeiculosDAO dao = new VeiculosDAO();
         boolean status = dao.conectar();
-        if (status == true) {
-            txt_relatorio.setText(dao.getRelatorioAutomatico());
+        if (status) {
+            ResultSet rs = dao.getRelatorioAutomatico();
+            StringBuilder rel = new StringBuilder();
+            String csvFile = "relatorio_veiculos_automaticos.csv";
+        
+            try (FileWriter writer = new FileWriter(csvFile)) {
+                writer.append("ID,Modelo,Ano,Combustível,Câmbio,Cor,Duração Garantia,KM,Preço,Descrição,Marca\n");
+
+                while (rs.next()) {
+                    writer.append(Integer.toString(rs.getInt("id_carro"))).append(";")
+                          .append(rs.getString("modelo_veiculo")).append(";")
+                          .append(rs.getString("ano_veiculo")).append(";")
+                          .append(rs.getString("combustivel_veiculo")).append(";")
+                          .append(rs.getString("tipocambio_veiculo")).append(";")
+                          .append(rs.getString("cor_veiculo")).append(";")
+                          .append(rs.getString("duracao_garantia")).append(";")
+                          .append(rs.getString("km_veiculo")).append(";")
+                          .append(rs.getString("preco_veiculo")).append(";")
+                          .append(rs.getString("descricao_veiculo")).append(";")
+                          .append(rs.getString("marca_veiculo")).append("\n");
+                }
+                JOptionPane.showMessageDialog(null, "Relatório exportado com sucesso para " + csvFile + ".\nVerifique a pasta do projeto.");
+            } catch (SQLException | IOException ex) {
+                Logger.getLogger(TelaVeiculos.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Erro ao exportar relatório: " + ex.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com banco de dados");
         }
     }//GEN-LAST:event_btRelatorioAutomaticoActionPerformed
 
@@ -598,6 +633,40 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private void txt_marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_marcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_marcaActionPerformed
+
+    private void btRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioActionPerformed
+        VeiculosDAO dao = new VeiculosDAO();
+        boolean status = dao.conectar();
+        if (status) {
+            ResultSet rs = dao.getRelatorio();
+            StringBuilder rel = new StringBuilder();
+            String csvFile = "relatorio_veiculos.csv";
+        
+            try (FileWriter writer = new FileWriter(csvFile)) {
+                writer.append("ID,Modelo,Ano,Combustível,Câmbio,Cor,Duração Garantia,KM,Preço,Descrição,Marca\n");
+
+                while (rs.next()) {
+                    writer.append(Integer.toString(rs.getInt("id_carro"))).append(";")
+                          .append(rs.getString("modelo_veiculo")).append(";")
+                          .append(rs.getString("ano_veiculo")).append(";")
+                          .append(rs.getString("combustivel_veiculo")).append(";")
+                          .append(rs.getString("tipocambio_veiculo")).append(";")
+                          .append(rs.getString("cor_veiculo")).append(";")
+                          .append(rs.getString("duracao_garantia")).append(";")
+                          .append(rs.getString("km_veiculo")).append(";")
+                          .append(rs.getString("preco_veiculo")).append(";")
+                          .append(rs.getString("descricao_veiculo")).append(";")
+                          .append(rs.getString("marca_veiculo")).append("\n");
+                }
+                JOptionPane.showMessageDialog(null, "Relatório exportado com sucesso para " + csvFile + ".\nVerifique a pasta do projeto.");
+            } catch (SQLException | IOException ex) {
+                Logger.getLogger(TelaVeiculos.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Erro ao exportar relatório: " + ex.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com banco de dados");
+        }
+    }//GEN-LAST:event_btRelatorioActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -655,7 +724,6 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_ano;
     private javax.swing.JTextField txt_combustivel;
     private javax.swing.JTextField txt_cor;
@@ -666,7 +734,6 @@ public class TelaVeiculos extends javax.swing.JFrame {
     private javax.swing.JTextField txt_marca;
     private javax.swing.JTextField txt_modelo;
     private javax.swing.JTextField txt_preco;
-    private javax.swing.JTextArea txt_relatorio;
     private javax.swing.JTextField txt_tipocambio;
     // End of variables declaration//GEN-END:variables
 }

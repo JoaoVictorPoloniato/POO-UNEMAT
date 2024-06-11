@@ -1,0 +1,18 @@
+ID,Modelo,Ano,Combustível,Câmbio,Cor,Duração Garantia,KM,Preço,Descrição,Marca
+1;Sedan;2019;Elétrico;Automático;Vantablack;6;0;149900;Novo;Nissan 
+3;Sedan;2020;Elétrico;Automático;Branco;5;20000;160000;Semi-novo;Tesla
+8;Sedan;2023;Gasolina;Automático;Verde;5;0;200000;Novo;Citroen
+11;Model S;2022;Elétrico;Automático;Preto;8;0;449500;Novo;Tesla
+12;Model 3;2023;Elétrico;Automático;Prata metálico;4;0;499950;Novo;Tesla
+13;Model X;2022;Elétrico;Automático;Preto;1;0;499950;Novo;Tesla
+14;Model Y;2023;Elétrico;Automático;Pérola;2;10000;380950;Semi-novo;Tesla
+15;Model 3;2023;Elétrico;Automático;Branco;4;0;499950;Novo;Tesla
+16;Model X;2022;Elétrico;Automático;Azul;1;0;499950;Novo;Tesla
+17;Model Y;2023;Elétrico;Automático;Pérola;5;0;499950;Novo;Tesla
+18;Model 3;2023;Elétrico;Automático;Prata metálico;4;0;399950;Novo;Tesla
+19;Model X;2022;Elétrico;Automático;Azul marinho fosco;1;0;499950;Novo;Tesla
+21;Model 3;2023;Elétrico;Automático;Prata metálico;4;0;499950;Novo;Tesla
+23;Model Y;2023;Elétrico;Automático;Branco;5;0;498950;Novo;Tesla
+24;Model 3;2023;Elétrico;Automático;Preto;4;0;499950;Novo;Tesla
+27;Model Y;2023;Elétrico;Automático;Preto;5;0;499950;Novo;Tesla
+30;TeslaX;2025;Eletrico;Automatico;prata;5;0;2000000;Modelo compacto de luxo;Tesla

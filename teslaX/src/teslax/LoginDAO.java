@@ -14,7 +14,7 @@ public class LoginDAO {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdtesla", "root", "");
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
-            ex.printStackTrace(); // Você pode querer lidar com a exceção de uma maneira mais apropriada para sua aplicação
+            ex.printStackTrace();
             return false;
         }
     }
